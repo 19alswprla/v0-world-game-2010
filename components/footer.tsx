@@ -19,9 +19,9 @@ export function Footer() {
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/World_games_logo_final-Photoroom-ytXoCU9fKgw8bkpHSEtvhQWfmKEPL9.png"
                 alt="World Game 2010"
-                width={160}
-                height={64}
-                className="h-14 w-auto"
+                width={200}
+                height={80}
+                className="h-20 w-auto"
                 unoptimized
               />
             </Link>
