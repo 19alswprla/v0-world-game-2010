@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -21,9 +22,14 @@ export function Header() {
       <nav className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <span className="font-serif text-xl font-semibold tracking-tight text-foreground">
-              World Game 2010
-            </span>
+            <Image
+              src="/logo.png"
+              alt="World Game 2010"
+              width={140}
+              height={56}
+              className="h-12 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

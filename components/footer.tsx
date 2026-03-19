@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 const navigation = [
   { name: "About", href: "#about" },
@@ -14,8 +15,14 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           <div>
-            <Link href="/" className="font-serif text-xl font-semibold">
-              World Game 2010
+            <Link href="/" className="inline-block">
+              <Image
+                src="/logo.png"
+                alt="World Game 2010"
+                width={160}
+                height={64}
+                className="h-14 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="mt-2 text-sm text-primary-foreground/70 max-w-md">
               Licensed Georgia COAM Master Company providing gaming systems and technical support since 2010.
