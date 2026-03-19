@@ -21,7 +21,7 @@ export function Footer() {
                 alt="World Game 2010"
                 width={160}
                 height={64}
-                className="h-14 w-auto brightness-0 invert"
+                className="h-14 w-auto"
               />
             </Link>
             <p className="mt-2 text-sm text-primary-foreground/70 max-w-md">
