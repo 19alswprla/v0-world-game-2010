@@ -27,7 +27,7 @@ export function Header() {
               alt="World Game 2010"
               width={140}
               height={56}
-              className="h-12 w-auto mix-blend-multiply"
+              className="h-12 w-auto"
               priority
             />
           </Link>
