@@ -25,10 +25,22 @@ const highlights = [
 
 export function About() {
   return (
-    <section id="about" className="py-24 lg:py-32 bg-secondary/30">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="about" className="relative py-24 lg:py-32 bg-gradient-to-b from-white to-[#f8f9fa] overflow-hidden">
+      {/* Abstract background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#3498db]/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-[#2ecc71]/5 rounded-full blur-3xl" />
+        <svg className="absolute top-10 left-10 w-20 h-20 text-[#d4a845]/10" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="2" />
+          <circle cx="50" cy="50" r="30" stroke="currentColor" strokeWidth="1" />
+        </svg>
+        <svg className="absolute bottom-20 right-20 w-32 h-32 text-[#0a1628]/5" viewBox="0 0 100 100" fill="none">
+          <path d="M10 50 Q50 10 90 50 Q50 90 10 50" stroke="currentColor" strokeWidth="2" />
+        </svg>
+      </div>
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-medium uppercase tracking-widest text-accent mb-4">
+          <p className="text-sm font-medium uppercase tracking-widest text-[#d4a845] mb-4">
             Who We Are
           </p>
           <h2 className="text-3xl font-serif font-semibold tracking-tight text-foreground sm:text-4xl text-balance">

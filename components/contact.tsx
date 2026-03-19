@@ -26,35 +26,51 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-background">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="contact" className="relative py-24 lg:py-32 bg-[#0a1628] overflow-hidden">
+      {/* Abstract background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-bl from-[#0d2847] via-[#0a1628] to-[#0a1628]" />
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#d4a845]/5 rounded-full blur-3xl -translate-y-1/2" />
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-[#3498db]/5 rounded-full blur-3xl translate-y-1/2" />
+        {/* Subtle grid */}
+        <svg className="absolute w-full h-full opacity-[0.02]" viewBox="0 0 1000 1000">
+          <defs>
+            <pattern id="contact-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#d4a845" strokeWidth="0.5" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#contact-grid)" />
+        </svg>
+      </div>
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-medium uppercase tracking-widest text-accent mb-4">
+          <p className="text-sm font-medium uppercase tracking-widest text-[#d4a845] mb-4">
             Get In Touch
           </p>
-          <h2 className="text-3xl font-serif font-semibold tracking-tight text-foreground sm:text-4xl text-balance">
+          <h2 className="text-3xl font-serif font-semibold tracking-tight text-white sm:text-4xl text-balance">
             Start a Partnership
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-muted-foreground text-pretty">
+          <p className="mt-6 text-lg leading-relaxed text-white/70 text-pretty">
             Ready to optimize your location&apos;s revenue potential? Contact us to discuss how we can work together.
           </p>
         </div>
 
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Contact Form */}
-          <div className="bg-card rounded-xl border border-border p-8">
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8">
             {submitted ? (
               <div className="flex flex-col items-center justify-center h-full min-h-[300px] text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground mb-4">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#d4a845] text-[#0a1628] mb-4">
                   <Mail className="h-8 w-8" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground">Message Sent!</h3>
-                <p className="mt-2 text-muted-foreground">
+                <h3 className="text-xl font-semibold text-white">Message Sent!</h3>
+                <p className="mt-2 text-white/60">
                   We&apos;ll be in touch with you shortly.
                 </p>
                 <Button
                   variant="outline"
-                  className="mt-6"
+                  className="mt-6 border-white/30 text-white hover:bg-white/10"
                   onClick={() => setSubmitted(false)}
                 >
                   Send Another Message
@@ -63,7 +79,7 @@ export function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                     Name
                   </label>
                   <Input
@@ -73,11 +89,11 @@ export function Contact() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Your name"
-                    className="bg-background"
+                    className="bg-white/5 border-white/10 text-white placeholder:text-white/40"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                     Email
                   </label>
                   <Input
@@ -87,11 +103,11 @@ export function Contact() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="you@company.com"
-                    className="bg-background"
+                    className="bg-white/5 border-white/10 text-white placeholder:text-white/40"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
                     Message
                   </label>
                   <Textarea
@@ -101,10 +117,10 @@ export function Contact() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Tell us about your location and partnership interests..."
-                    className="bg-background resize-none"
+                    className="bg-white/5 border-white/10 text-white placeholder:text-white/40 resize-none"
                   />
                 </div>
-                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                <Button type="submit" className="w-full bg-[#d4a845] hover:bg-[#c49935] text-[#0a1628]" disabled={isSubmitting}>
                   {isSubmitting ? "Sending..." : "Start a Partnership"}
                 </Button>
               </form>
@@ -115,12 +131,12 @@ export function Contact() {
           <div className="flex flex-col justify-center">
             <div className="space-y-8">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-secondary text-foreground">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white/10 text-[#d4a845]">
                   <MapPin className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Address</h3>
-                  <p className="mt-1 text-muted-foreground">
+                  <h3 className="font-semibold text-white">Address</h3>
+                  <p className="mt-1 text-white/60">
                     4413 Mendi Ct.<br />
                     Suwanee, GA 30024
                   </p>
@@ -128,14 +144,14 @@ export function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-secondary text-foreground">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white/10 text-[#d4a845]">
                   <Mail className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Email</h3>
+                  <h3 className="font-semibold text-white">Email</h3>
                   <a
                     href="mailto:info@worldgame2010.com"
-                    className="mt-1 text-muted-foreground hover:text-accent transition-colors"
+                    className="mt-1 text-white/60 hover:text-[#d4a845] transition-colors"
                   >
                     info@worldgame2010.com
                   </a>
@@ -143,14 +159,14 @@ export function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-secondary text-foreground">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white/10 text-[#d4a845]">
                   <Phone className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Phone</h3>
+                  <h3 className="font-semibold text-white">Phone</h3>
                   <a
                     href="tel:+17707976675"
-                    className="mt-1 text-muted-foreground hover:text-accent transition-colors"
+                    className="mt-1 text-white/60 hover:text-[#d4a845] transition-colors"
                   >
                     (770) 797-6675
                   </a>
@@ -158,9 +174,9 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="mt-12 p-6 bg-secondary/50 rounded-lg border border-border">
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Office Hours:</strong><br />
+            <div className="mt-12 p-6 bg-white/5 rounded-lg border border-white/10">
+              <p className="text-sm text-white/60 leading-relaxed">
+                <strong className="text-white">Office Hours:</strong><br />
                 Monday - Friday: 9:00 AM - 6:00 PM EST<br />
                 Technical Support: 24/7
               </p>
