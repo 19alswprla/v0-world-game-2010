@@ -56,20 +56,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-xs text-primary-foreground/40">
-            &copy; {new Date().getFullYear()} World Game 2010. All rights reserved.
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="text-xs text-primary-foreground/40">Licensed by</span>
-            <Image
-              src="/coam-logo.png"
-              alt="Georgia Lottery COAM Division"
-              width={80}
-              height={48}
-              className="h-10 w-auto"
-            />
-          </div>
+        <div className="mt-8 text-center text-xs text-primary-foreground/40">
+          &copy; {new Date().getFullYear()} World Game 2010. All rights reserved.
         </div>
       </div>
     </footer>
