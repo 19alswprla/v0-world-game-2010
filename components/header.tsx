@@ -23,12 +23,13 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/logo.png"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/World_games_logo_final-Photoroom-ytXoCU9fKgw8bkpHSEtvhQWfmKEPL9.png"
               alt="World Game 2010"
               width={140}
               height={56}
               className="h-12 w-auto"
               priority
+              unoptimized
             />
           </Link>
 

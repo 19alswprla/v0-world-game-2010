@@ -17,11 +17,12 @@ export function Footer() {
           <div>
             <Link href="/" className="inline-block">
               <Image
-                src="/logo.png"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/World_games_logo_final-Photoroom-ytXoCU9fKgw8bkpHSEtvhQWfmKEPL9.png"
                 alt="World Game 2010"
                 width={160}
                 height={64}
                 className="h-14 w-auto"
+                unoptimized
               />
             </Link>
             <p className="mt-2 text-sm text-primary-foreground/70 max-w-md">
