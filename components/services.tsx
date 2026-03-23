@@ -1,6 +1,6 @@
 "use client"
 
-import { Cpu, Wrench, Users } from "lucide-react"
+import { Cpu, Wrench, Users, Zap, Shield, Headphones } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 const services = [
@@ -36,6 +36,16 @@ const services = [
   },
 ]
 
+// Extra symbols for spinning effect
+const spinSymbols = [
+  { icon: Zap, color: "#3498db" },
+  { icon: Shield, color: "#2ecc71" },
+  { icon: Headphones, color: "#e74c3c" },
+  { icon: Cpu, color: "#9b59b6" },
+  { icon: Wrench, color: "#f39c12" },
+  { icon: Users, color: "#1abc9c" },
+]
+
 function SlotReel({ 
   service, 
   index, 
@@ -47,11 +57,8 @@ function SlotReel({
   isSpinning: boolean
   hasStopped: boolean
 }) {
-  const reelRef = useRef<HTMLDivElement>(null)
-  
-  // Clone the content for seamless looping
   const ServiceCard = () => (
-    <div className="h-[340px] w-full flex-shrink-0 p-6 flex flex-col">
+    <div className="h-[320px] w-full flex-shrink-0 p-6 flex flex-col bg-white/5 backdrop-blur-sm">
       <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#d4a845] text-[#0a1628] mb-5 shadow-lg shadow-[#d4a845]/20">
         <service.icon className="h-7 w-7" />
       </div>
@@ -70,31 +77,47 @@ function SlotReel({
     </div>
   )
 
+  // Spinning symbol card
+  const SpinSymbol = ({ symbolIndex }: { symbolIndex: number }) => {
+    const symbol = spinSymbols[symbolIndex % spinSymbols.length]
+    return (
+      <div className="h-[320px] w-full flex-shrink-0 p-6 flex flex-col items-center justify-center bg-white/5">
+        <div 
+          className="flex h-20 w-20 items-center justify-center rounded-2xl mb-4"
+          style={{ backgroundColor: symbol.color }}
+        >
+          <symbol.icon className="h-10 w-10 text-white" />
+        </div>
+        <div className="w-24 h-3 bg-white/20 rounded animate-pulse" />
+        <div className="w-16 h-2 bg-white/10 rounded mt-3" />
+      </div>
+    )
+  }
+
   return (
-    <div className="relative h-[340px] overflow-hidden rounded-xl border-2 border-[#d4a845]/30 bg-white/5">
+    <div className="relative h-[320px] overflow-hidden rounded-xl border-2 border-[#d4a845]/30 bg-[#0a1628]">
       {/* Gradient overlays for depth effect */}
-      <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#0a1628] to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#0a1628] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#0a1628] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0a1628] to-transparent z-10 pointer-events-none" />
       
       {/* Spinning reel container */}
       <div 
-        ref={reelRef}
         className={`
-          flex flex-col
-          ${isSpinning && !hasStopped ? 'animate-spin-reel' : ''}
-          ${hasStopped ? 'animate-none' : ''}
+          flex flex-col transition-transform
+          ${isSpinning && !hasStopped ? 'animate-slot-spin' : ''}
         `}
         style={{
-          animationDuration: `${0.15 + index * 0.05}s`,
-          transform: hasStopped ? 'translateY(0)' : undefined,
+          animationDuration: `${0.12 + index * 0.03}s`,
         }}
       >
-        {/* Multiple copies for continuous spin effect */}
         {isSpinning && !hasStopped ? (
           <>
-            <ServiceCard />
-            <ServiceCard />
-            <ServiceCard />
+            <SpinSymbol symbolIndex={0 + index} />
+            <SpinSymbol symbolIndex={1 + index} />
+            <SpinSymbol symbolIndex={2 + index} />
+            <SpinSymbol symbolIndex={3 + index} />
+            <SpinSymbol symbolIndex={4 + index} />
+            <SpinSymbol symbolIndex={5 + index} />
           </>
         ) : (
           <ServiceCard />
@@ -104,9 +127,9 @@ function SlotReel({
       {/* Win glow effect */}
       {hasStopped && (
         <div 
-          className="absolute inset-0 rounded-xl pointer-events-none"
+          className="absolute inset-0 rounded-xl pointer-events-none animate-pulse"
           style={{
-            boxShadow: 'inset 0 0 30px rgba(212, 168, 69, 0.2), 0 0 20px rgba(212, 168, 69, 0.15)'
+            boxShadow: 'inset 0 0 40px rgba(212, 168, 69, 0.25), 0 0 30px rgba(212, 168, 69, 0.2)'
           }}
         />
       )}
@@ -119,6 +142,7 @@ export function Services() {
   const [isVisible, setIsVisible] = useState(false)
   const [isSpinning, setIsSpinning] = useState(false)
   const [stoppedReels, setStoppedReels] = useState([false, false, false])
+  const [showJackpot, setShowJackpot] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -128,12 +152,13 @@ export function Services() {
           setIsSpinning(true)
           
           // Stop reels one by one with slot machine timing
-          setTimeout(() => setStoppedReels(prev => [true, prev[1], prev[2]]), 1200)
-          setTimeout(() => setStoppedReels(prev => [prev[0], true, prev[2]]), 1800)
+          setTimeout(() => setStoppedReels(prev => [true, prev[1], prev[2]]), 1500)
+          setTimeout(() => setStoppedReels(prev => [prev[0], true, prev[2]]), 2200)
           setTimeout(() => {
-            setStoppedReels(prev => [prev[0], prev[1], true])
+            setStoppedReels([true, true, true])
             setIsSpinning(false)
-          }, 2400)
+          }, 2900)
+          setTimeout(() => setShowJackpot(true), 3200)
         }
       },
       { threshold: 0.3 }
@@ -175,23 +200,24 @@ export function Services() {
         {/* Slot Machine Frame */}
         <div className="mt-16 relative">
           {/* Top lights */}
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-3">
-            {[0, 1, 2, 3, 4].map((i) => (
+          <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex items-center gap-4">
+            {[0, 1, 2, 3, 4, 5, 6].map((i) => (
               <div 
                 key={i}
-                className="w-3 h-3 rounded-full animate-pulse"
+                className="w-4 h-4 rounded-full animate-pulse shadow-lg"
                 style={{ 
                   backgroundColor: i % 2 === 0 ? '#d4a845' : '#ef4444',
-                  animationDelay: `${i * 0.2}s` 
+                  animationDelay: `${i * 0.15}s`,
+                  boxShadow: `0 0 10px ${i % 2 === 0 ? '#d4a845' : '#ef4444'}`
                 }} 
               />
             ))}
           </div>
           
           {/* Main slot display */}
-          <div className="relative rounded-2xl border-4 border-[#d4a845]/40 bg-gradient-to-b from-[#0d2847] to-[#0a1628] p-6 lg:p-8 shadow-[0_0_60px_rgba(212,168,69,0.1)]">
+          <div className="relative rounded-2xl border-4 border-[#d4a845]/50 bg-gradient-to-b from-[#0d2847] to-[#0a1628] p-6 lg:p-8 shadow-[0_0_80px_rgba(212,168,69,0.15)]">
             
-            {/* Slot reels grid */}
+            {/* Slot reels grid - all same size */}
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-6">
               {services.map((service, index) => (
                 <SlotReel
@@ -206,29 +232,29 @@ export function Services() {
             
             {/* Jackpot banner */}
             <div className={`
-              mt-8 py-3 px-6 rounded-lg bg-gradient-to-r from-[#d4a845]/10 via-[#d4a845]/20 to-[#d4a845]/10 
-              border border-[#d4a845]/30 text-center transition-all duration-700
-              ${stoppedReels.every(Boolean) ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}
+              mt-8 py-4 px-6 rounded-lg bg-gradient-to-r from-[#d4a845]/20 via-[#d4a845]/30 to-[#d4a845]/20 
+              border-2 border-[#d4a845]/50 text-center transition-all duration-500
+              ${showJackpot ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}
             `}>
-              <p className="text-[#d4a845] font-semibold tracking-wider uppercase text-sm">
+              <p className="text-[#d4a845] font-bold tracking-wider uppercase">
                 Full Service Gaming Solutions
               </p>
             </div>
           </div>
           
-          {/* Base shadow */}
-          <div className="h-3 mx-12 bg-gradient-to-b from-[#d4a845]/20 to-transparent rounded-b-lg" />
+          {/* Base */}
+          <div className="h-4 mx-8 bg-gradient-to-b from-[#d4a845]/30 to-transparent rounded-b-xl" />
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes spin-reel {
+        @keyframes slot-spin {
           0% { transform: translateY(0); }
-          100% { transform: translateY(-340px); }
+          100% { transform: translateY(-1920px); }
         }
         
-        .animate-spin-reel {
-          animation: spin-reel linear infinite;
+        .animate-slot-spin {
+          animation: slot-spin linear infinite;
         }
       `}</style>
     </section>
