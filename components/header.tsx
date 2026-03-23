@@ -7,11 +7,11 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#revenue", label: "Revenue Model" },
-  { href: "#why-us", label: "Why Us" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", label: "About" },
+  { href: "/#services", label: "Services" },
+  { href: "/#revenue", label: "Revenue Model" },
+  { href: "/#why-us", label: "Why Us" },
+  { href: "/#contact", label: "Contact" },
   { href: "/careers", label: "Careers" },
 ]
 
@@ -46,7 +46,7 @@ export function Header() {
               </Link>
             ))}
             <Button asChild>
-              <Link href="#contact">Partner With Us</Link>
+              <Link href="/#contact">Partner With Us</Link>
             </Button>
           </div>
 
@@ -76,7 +76,7 @@ export function Header() {
                 </Link>
               ))}
               <Button asChild className="w-fit">
-                <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/#contact" onClick={() => setMobileMenuOpen(false)}>
                   Partner With Us
                 </Link>
               </Button>
