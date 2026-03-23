@@ -1,23 +1,32 @@
 "use client"
 
 const revenueBreakdown = [
-  { label: "Operator (Master)", percentage: 43.5, color: "bg-primary" },
-  { label: "Location Owner", percentage: 43.5, color: "bg-accent" },
-  { label: "State (Georgia Lottery Fund)", percentage: 13, color: "bg-muted-foreground" },
+  { label: "Operator (Master)", percentage: 43.5, color: "#0a1628" },
+  { label: "Location Owner", percentage: 43.5, color: "#d4a845" },
+  { label: "State (Georgia Lottery Fund)", percentage: 13, color: "#3498db" },
 ]
 
 export function RevenueModel() {
   return (
-    <section id="revenue" className="py-24 lg:py-32 bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="revenue" className="relative py-24 lg:py-32 bg-gradient-to-b from-white to-[#f8f9fa] overflow-hidden">
+      {/* Abstract background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-10 left-[10%] w-64 h-64 bg-[#d4a845]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-[15%] w-48 h-48 bg-[#3498db]/5 rounded-full blur-3xl" />
+        <svg className="absolute bottom-0 left-0 w-32 h-32 text-[#0a1628]/5" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="1" />
+          <circle cx="50" cy="50" r="30" stroke="currentColor" strokeWidth="1" />
+        </svg>
+      </div>
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-medium uppercase tracking-widest text-primary-foreground/70 mb-4">
+          <p className="text-sm font-medium uppercase tracking-widest text-[#d4a845] mb-4">
             Revenue Distribution
           </p>
-          <h2 className="text-3xl font-serif font-semibold tracking-tight sm:text-4xl text-balance">
+          <h2 className="text-3xl font-serif font-semibold tracking-tight text-[#0a1628] sm:text-4xl text-balance">
             Transparent Revenue Model
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-primary-foreground/80 text-pretty">
+          <p className="mt-6 text-lg leading-relaxed text-[#0a1628]/70 text-pretty">
             Revenue is generated from player activity and distributed in accordance with Georgia COAM regulations.
           </p>
         </div>
@@ -33,11 +42,10 @@ export function RevenueModel() {
                   cy="50"
                   r="40"
                   fill="transparent"
-                  stroke="currentColor"
+                  stroke="#0a1628"
                   strokeWidth="20"
                   strokeDasharray="109.3 251.3"
                   strokeDashoffset="0"
-                  className="text-primary-foreground"
                 />
                 {/* Location Owner slice - 43.5% */}
                 <circle
@@ -45,11 +53,10 @@ export function RevenueModel() {
                   cy="50"
                   r="40"
                   fill="transparent"
-                  stroke="currentColor"
+                  stroke="#d4a845"
                   strokeWidth="20"
                   strokeDasharray="109.3 251.3"
                   strokeDashoffset="-109.3"
-                  className="text-accent"
                 />
                 {/* State slice - 13% */}
                 <circle
@@ -57,17 +64,16 @@ export function RevenueModel() {
                   cy="50"
                   r="40"
                   fill="transparent"
-                  stroke="currentColor"
+                  stroke="#3498db"
                   strokeWidth="20"
                   strokeDasharray="32.7 251.3"
                   strokeDashoffset="-218.6"
-                  className="text-primary-foreground/40"
                 />
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <p className="text-4xl font-semibold">100%</p>
-                  <p className="text-sm text-primary-foreground/70">Total Revenue</p>
+                  <p className="text-4xl font-semibold text-[#0a1628]">100%</p>
+                  <p className="text-sm text-[#0a1628]/60">Total Revenue</p>
                 </div>
               </div>
             </div>
@@ -78,21 +84,21 @@ export function RevenueModel() {
             {revenueBreakdown.map((item) => (
               <div
                 key={item.label}
-                className="bg-primary-foreground/10 rounded-lg p-6 backdrop-blur-sm border border-primary-foreground/10"
+                className="bg-white rounded-lg p-6 shadow-lg border border-[#0a1628]/10"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-lg font-medium">{item.label}</span>
-                  <span className="text-2xl font-semibold">{item.percentage}%</span>
+                  <span className="text-lg font-medium text-[#0a1628]">{item.label}</span>
+                  <span className="text-2xl font-semibold text-[#0a1628]">{item.percentage}%</span>
                 </div>
-                <div className="h-2 rounded-full bg-primary-foreground/20 overflow-hidden">
+                <div className="h-2 rounded-full bg-[#0a1628]/10 overflow-hidden">
                   <div
-                    className={`h-full rounded-full ${item.color === "bg-primary" ? "bg-primary-foreground" : item.color === "bg-accent" ? "bg-accent" : "bg-primary-foreground/50"}`}
-                    style={{ width: `${item.percentage}%` }}
+                    className="h-full rounded-full"
+                    style={{ width: `${item.percentage}%`, backgroundColor: item.color }}
                   />
                 </div>
               </div>
             ))}
-            <p className="text-sm text-primary-foreground/60 mt-6 leading-relaxed">
+            <p className="text-sm text-[#0a1628]/60 mt-6 leading-relaxed">
               This distribution model ensures fair compensation for all parties while supporting Georgia&apos;s educational initiatives through the Lottery Fund.
             </p>
           </div>
