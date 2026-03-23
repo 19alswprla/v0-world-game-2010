@@ -12,6 +12,7 @@ const navLinks = [
   { href: "#revenue", label: "Revenue Model" },
   { href: "#why-us", label: "Why Us" },
   { href: "#contact", label: "Contact" },
+  { href: "/careers", label: "Careers" },
 ]
 
 export function Header() {
