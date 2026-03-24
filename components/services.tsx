@@ -247,22 +247,6 @@ export function Services() {
 
         {/* Slot Machine Frame */}
         <div className="mt-16 relative">
-          {/* Top lights */}
-          <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex items-center gap-3">
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div 
-                key={i}
-                className="w-3 h-3 rounded-full shadow-lg"
-                style={{ 
-                  backgroundColor: isSpinning ? (i % 2 === 0 ? '#d4a845' : '#ef4444') : (stoppedReels.every(s => s) ? '#4ade80' : '#d4a845'),
-                  animation: isSpinning ? 'blink 0.3s ease-in-out infinite' : 'none',
-                  animationDelay: `${i * 0.1}s`,
-                  boxShadow: `0 0 8px ${isSpinning ? (i % 2 === 0 ? '#d4a845' : '#ef4444') : (stoppedReels.every(s => s) ? '#4ade80' : '#d4a845')}`
-                }} 
-              />
-            ))}
-          </div>
-          
           {/* Main slot display */}
           <div className="relative rounded-2xl border-4 border-[#d4a845]/60 bg-gradient-to-b from-[#0d1a2d] to-[#080c14] p-6 lg:p-8 shadow-[0_0_100px_rgba(212,168,69,0.1)]">
             {/* Inner frame glow */}
