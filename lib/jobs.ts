@@ -13,7 +13,7 @@ export const jobs: Job[] = [
   {
     id: "technical-solutions-engineer",
     title: "Technical Solutions Engineer",
-    location: "Suwanee, Georgia",
+    location: "80% Remote, 20% In Office (Suwanee, GA)",
     datePosted: "03/15/2026",
     jobType: "Full-Time",
     overview: "The Technical Solutions Engineer will join our dynamic team to provide expert-level technical support and solutions for our COAM gaming systems. The ideal candidate will troubleshoot complex hardware and software issues, work directly with location partners, and ensure optimal system performance across Georgia.",
@@ -100,7 +100,7 @@ export const jobs: Job[] = [
   {
     id: "artist-ii",
     title: "Artist II",
-    location: "Suwanee, Georgia",
+    location: "Remote",
     datePosted: "03/10/2026",
     jobType: "Full-Time",
     overview: "The Artist II will join our team-oriented group of creatives in the Game Development Department. The ideal candidate will be required to work inside a group of artists to create the next highly-engaging and innovative slot games visuals and from start to finish.",
