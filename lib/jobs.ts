@@ -13,7 +13,7 @@ export const jobs: Job[] = [
   {
     id: "technical-solutions-engineer",
     title: "Technical Solutions Engineer",
-    location: "80% Remote, 20% In Office (Suwanee, GA)",
+    location: "Hybrid (Suwanee, GA)",
     datePosted: "03/15/2026",
     jobType: "Full-Time",
     overview: "The Technical Solutions Engineer will join our dynamic team to provide expert-level technical support and solutions for our COAM gaming systems. The ideal candidate will troubleshoot complex hardware and software issues, work directly with location partners, and ensure optimal system performance across Georgia.",
@@ -42,7 +42,7 @@ export const jobs: Job[] = [
   {
     id: "software-test-engineer",
     title: "Software Test Engineer",
-    location: "Suwanee, Georgia",
+    location: "Hybrid (Suwanee, GA)",
     datePosted: "03/12/2026",
     jobType: "Full-Time",
     overview: "The Software Test Engineer will be responsible for ensuring the quality and reliability of our gaming software platforms. You will design and execute test plans, identify defects, and work closely with developers to deliver exceptional gaming experiences while maintaining strict regulatory compliance.",
