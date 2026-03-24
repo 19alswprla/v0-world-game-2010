@@ -107,9 +107,13 @@ function SlotReel({
       {/* Reel window shine effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none z-20" />
       
-      {/* Top/bottom fade for depth */}
-      <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#0a0a12] to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#0a0a12] to-transparent z-10 pointer-events-none" />
+      {/* Top fade for depth - only during spinning */}
+      {(isSpinning || (!hasStopped && offset > 0)) && (
+        <>
+          <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#0a0a12] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#0a0a12] to-transparent z-10 pointer-events-none" />
+        </>
+      )}
       
       {/* Spinning symbols - visible during spin */}
       {(isSpinning || (!hasStopped && offset > 0)) && (
