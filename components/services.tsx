@@ -65,6 +65,8 @@ function SlotReel({
   hasStopped: boolean
 }) {
   const [offset, setOffset] = useState(0)
+  const [showCard, setShowCard] = useState(false)
+  const [hideSymbols, setHideSymbols] = useState(false)
   const animationRef = useRef<number>()
   const speedRef = useRef(0)
   
@@ -80,16 +82,23 @@ function SlotReel({
   useEffect(() => {
     if (isSpinning && !hasStopped) {
       speedRef.current = 0
+      setShowCard(false)
+      setHideSymbols(false)
       animationRef.current = requestAnimationFrame(animate)
-    } else if (hasStopped) {
+    } else if (hasStopped && !showCard) {
       // Decelerate when stopping
       const decelerate = () => {
-        speedRef.current *= 0.9
+        speedRef.current *= 0.85
         if (speedRef.current > 0.5) {
           setOffset(prev => (prev + speedRef.current) % (slotSymbols.length * SYMBOL_HEIGHT))
           animationRef.current = requestAnimationFrame(decelerate)
         } else {
-          setOffset(0) // Snap to final position
+          // First hide symbols with fade out
+          setHideSymbols(true)
+          // Then show card after symbols are hidden
+          setTimeout(() => {
+            setShowCard(true)
+          }, 200)
         }
       }
       decelerate()
@@ -100,7 +109,7 @@ function SlotReel({
         cancelAnimationFrame(animationRef.current)
       }
     }
-  }, [isSpinning, hasStopped, animate])
+  }, [isSpinning, hasStopped, animate, showCard])
 
   return (
     <div className="relative h-[320px] overflow-hidden rounded-xl border-2 border-[#d4a845]/40 bg-[#0a0a12]">
@@ -116,9 +125,9 @@ function SlotReel({
       )}
       
       {/* Spinning symbols - visible during spin */}
-      {(isSpinning || (!hasStopped && offset > 0)) && (
+      {!showCard && (
         <div 
-          className="absolute inset-0 flex flex-col items-center justify-start pt-4"
+          className={`absolute inset-0 flex flex-col items-center justify-start pt-4 transition-opacity duration-200 ${hideSymbols ? 'opacity-0' : 'opacity-100'}`}
           style={{ 
             transform: `translateY(-${offset}px)`,
           }}
@@ -152,10 +161,10 @@ function SlotReel({
       
       {/* Final service card - revealed when stopped */}
       <div 
-        className={`absolute inset-0 p-5 flex flex-col transition-all duration-700 ease-out ${
-          hasStopped && offset === 0
+        className={`absolute inset-0 p-5 flex flex-col transition-all duration-500 ease-out ${
+          showCard
             ? 'opacity-100 scale-100' 
-            : 'opacity-0 scale-90'
+            : 'opacity-0 scale-95 pointer-events-none'
         }`}
       >
         <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#d4a845] text-[#0a1628] mb-4 shadow-lg shadow-[#d4a845]/30">
@@ -176,7 +185,7 @@ function SlotReel({
       </div>
       
       {/* Win glow effect */}
-      {hasStopped && offset === 0 && (
+      {showCard && (
         <div 
           className="absolute inset-0 rounded-xl pointer-events-none"
           style={{
