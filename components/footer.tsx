@@ -67,7 +67,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 text-center text-xs text-primary-foreground/40">
+        <div className="mt-8 pt-6 border-t border-primary-foreground/10">
+          <p className="text-xs text-primary-foreground/40 leading-relaxed max-w-4xl mx-auto text-center">
+            Products sold by World Game 2010 are offered for entertainment purposes only. The operations of any games and the features therein may be subject to various state and/or local laws or regulations. It is not intended to solicit the sale of such games in any jurisdiction wherein the same may not be lawfully sold or operated. It is the responsibility of the purchaser to fully investigate the legal requirements in their own jurisdiction prior to purchase. World Game 2010 is not responsible for items or systems that are used for any other purpose than entertainment or for systems that have been altered or relocated to a city, county or state whose regulations limit the ownership of such equipment.
+          </p>
+        </div>
+
+        <div className="mt-6 text-center text-xs text-primary-foreground/40">
           &copy; {new Date().getFullYear()} World Game 2010. All rights reserved.
         </div>
       </div>
