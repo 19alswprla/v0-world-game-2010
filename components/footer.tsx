@@ -16,7 +16,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
           <div>
             <div className="flex items-center gap-6">
-              <Link href="/" className="-ml-2 inline-block">
+              <Link href="/" className="-ml-6 inline-block">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/World_games_logo_final-Photoroom-ytXoCU9fKgw8bkpHSEtvhQWfmKEPL9.png"
                   alt="World Game 2010"
