@@ -28,15 +28,14 @@ export const jobs: Job[] = [
       "Participate in on-call rotation for 24/7 support coverage."
     ],
     requirements: [
-      "3-5 years of experience in technical support or field service engineering.",
+      "1-3 years of experience in technical support or field service engineering.",
       "Strong knowledge of computer hardware, networking, and operating systems.",
       "Experience with point-of-sale or gaming systems preferred.",
       "Excellent problem-solving and analytical skills.",
       "Strong communication skills and customer service orientation.",
       "Ability to work independently and manage multiple priorities.",
-      "Valid driver's license and ability to travel within Georgia.",
       "Background check required due to gaming industry regulations.",
-      "Associate's degree in IT, Electronics, or related field preferred."
+      "Bachelor's degree in IT, Electronics, or related field preferred."
     ]
   },
   {
