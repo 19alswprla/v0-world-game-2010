@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image"
+
 const revenueBreakdown = [
   { label: "Operator (Master)", percentage: 43.5, color: "#0a1628" },
   { label: "Location Owner", percentage: 43.5, color: "#d4a845" },
@@ -8,15 +10,17 @@ const revenueBreakdown = [
 
 export function RevenueModel() {
   return (
-    <section id="revenue" className="relative py-24 lg:py-32 bg-gradient-to-b from-white to-[#f8f9fa] overflow-hidden">
-      {/* Abstract background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-[10%] w-64 h-64 bg-[#d4a845]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-[15%] w-48 h-48 bg-[#3498db]/5 rounded-full blur-3xl" />
-        <svg className="absolute bottom-0 left-0 w-32 h-32 text-[#0a1628]/5" viewBox="0 0 100 100" fill="none">
-          <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="1" />
-          <circle cx="50" cy="50" r="30" stroke="currentColor" strokeWidth="1" />
-        </svg>
+    <section id="revenue" className="relative py-24 lg:py-32 overflow-hidden">
+      {/* Background image with light overlay */}
+      <div className="absolute inset-0">
+        <Image
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo-1518895312237-a9e23508077d-f1mWEsBw5RfcXRi62viunDm5Yqgob9.avif"
+          alt="Casino gaming floor"
+          fill
+          className="object-cover"
+          unoptimized
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/85 to-white/90" />
       </div>
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
