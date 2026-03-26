@@ -15,7 +15,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
           <div>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-3">
               <Link href="/" className="-ml-6 inline-block">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/World_games_logo_final-Photoroom-ytXoCU9fKgw8bkpHSEtvhQWfmKEPL9.png"
@@ -29,9 +29,9 @@ export function Footer() {
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/COAM%20logo-CBCApzHGVVDO1rfQdckBkiLVHJjKOq.png"
                 alt="Georgia Lottery COAM Division"
-                width={100}
-                height={70}
-                className="h-14 w-auto"
+                width={80}
+                height={56}
+                className="h-11 w-auto"
                 unoptimized
               />
             </div>
