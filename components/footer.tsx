@@ -13,29 +13,29 @@ export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
           <div>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
               <Link href="/" className="inline-block">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/World_games_logo_final-Photoroom-ytXoCU9fKgw8bkpHSEtvhQWfmKEPL9.png"
                   alt="World Game 2010"
-                  width={200}
-                  height={80}
-                  className="h-20 w-auto"
+                  width={140}
+                  height={56}
+                  className="h-14 w-auto"
                   unoptimized
                 />
               </Link>
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/COAM%20logo-CBCApzHGVVDO1rfQdckBkiLVHJjKOq.png"
                 alt="Georgia Lottery COAM Division"
-                width={80}
-                height={60}
+                width={100}
+                height={70}
                 className="h-14 w-auto"
                 unoptimized
               />
             </div>
-            <p className="mt-2 text-sm text-primary-foreground/70 max-w-md">
+            <p className="mt-4 text-sm text-primary-foreground/70 max-w-md">
               Licensed Georgia COAM Master Company providing gaming systems and technical support since 2010.
             </p>
           </div>
