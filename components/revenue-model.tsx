@@ -14,8 +14,8 @@ export function RevenueModel() {
       {/* Background image with light overlay */}
       <div className="absolute inset-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo-1518895312237-a9e23508077d-f1mWEsBw5RfcXRi62viunDm5Yqgob9.avif"
-          alt="Casino gaming floor"
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/jakub-zerdzicki-ykgLX_CwtDw-unsplash-2jCovKBCZGBJ3Xx9jqRHLq6XPF1Z0z.jpg"
+          alt="Business analytics and financial reports"
           fill
           className="object-cover"
           unoptimized
