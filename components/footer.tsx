@@ -15,14 +15,14 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
           <div>
-            <div className="flex items-center gap-4">
-              <Link href="/" className="inline-block">
+            <div className="flex items-center gap-6">
+              <Link href="/" className="-ml-2 inline-block">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/World_games_logo_final-Photoroom-ytXoCU9fKgw8bkpHSEtvhQWfmKEPL9.png"
                   alt="World Game 2010"
-                  width={140}
-                  height={56}
-                  className="h-14 w-auto"
+                  width={200}
+                  height={80}
+                  className="h-20 w-auto"
                   unoptimized
                 />
               </Link>
