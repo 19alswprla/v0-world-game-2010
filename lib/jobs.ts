@@ -42,7 +42,7 @@ export const jobs: Job[] = [
     id: "software-test-engineer",
     title: "Software Test Engineer",
     location: "Hybrid (Suwanee, GA)",
-    datePosted: "03/12/2026",
+    datePosted: "02/12/2026",
     jobType: "Full-Time",
     overview: "The Software Test Engineer will be responsible for ensuring the quality and reliability of our gaming software platforms. You will design and execute test plans, identify defects, and work closely with developers to deliver exceptional gaming experiences while maintaining strict regulatory compliance.",
     responsibilities: [
@@ -71,7 +71,7 @@ export const jobs: Job[] = [
     id: "animator",
     title: "Animator",
     location: "Suwanee, Georgia",
-    datePosted: "03/10/2026",
+    datePosted: "02/12/2026",
     jobType: "Full-Time",
     overview: "The Animator will join our creative team to bring gaming experiences to life through engaging animations and motion graphics. You will create animations for gaming terminals, promotional content, and user interfaces that captivate players while adhering to regulatory requirements.",
     responsibilities: [
@@ -100,7 +100,7 @@ export const jobs: Job[] = [
     id: "artist-ii",
     title: "Artist II",
     location: "Remote",
-    datePosted: "03/10/2026",
+    datePosted: "12/18/2025",
     jobType: "Full-Time",
     overview: "The Artist II will join our team-oriented group of creatives in the Game Development Department. The ideal candidate will be required to work inside a group of artists to create the next highly-engaging and innovative slot games visuals and from start to finish.",
     responsibilities: [
