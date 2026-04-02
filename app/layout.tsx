@@ -17,10 +17,6 @@ export const metadata: Metadata = {
   title: 'World Game 2010 | Georgia COAM Infrastructure',
   description: 'Licensed Georgia COAM Master Company providing gaming systems, revenue optimization, and technical support across Georgia since 2010.',
   generator: 'v0.app',
-  icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png',
-  },
 }
 
 export default function RootLayout({
